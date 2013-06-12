@@ -1,7 +1,7 @@
 /**
  * The main entry/controller point for our application
  * This is is an AMD module that is wrapped in an immediate executing function
- * note syntax : define([path/to/module], function(ModuleName){})
+ * note the syntax : define([path/to/module], function(ModuleName){})
  * ...this is fundamental to AMD acrhitectures
  */
 
@@ -14,13 +14,15 @@
 		'jquery',
 		
 		// load views/collections that we require
-		'views/HomeView'
+		'views/HomeView',
+		'domain/HomeCollection'
 
 	], function(
 		// loaded modules will be referenced as...
 		Backbone,
 		$,
-		HomeView
+		HomeView,
+		HomeCollection
 	
 	){
 		return {
@@ -44,8 +46,15 @@
 					 * Display the home page 
 					 */   
 					homePage: function(){
-						var myView = new HomeView();
-						myView.render();						
+						// instantiate a collection and a view
+						var myCollection = new HomeCollection();
+						var myView = new HomeView({collection: myCollection});
+						
+						// bind the reset event of the collection to the render method of the view
+						myView.listenTo(myCollection, 'reset', myView.render);
+						
+						// manually fetch our inital collection data
+						myCollection.fetch({dataType:'jsonp', reset:true});
 					}
 
 				});
