@@ -1,3 +1,6 @@
+<!--
+All markup in your application should be as semantic as possible. Refer to H5BP for details.
+-->
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -13,21 +16,23 @@
     <link rel="stylesheet" href="css/theme.css">
 </head>
 <body>
-    
+
     <header></header>
     <article>
-        <div id="page"></div>
+        <div id="container">
+            <!-- the id "container" is used by Twitter Bootstrap as well as KeelJS as the parent for all page content -->
+        </div>
     </article>
-    <footer></footer>
+    <footer></footer>    
 
-    <!-- JS templates below here: -->
-    <script type="text/template" id="fragment1">
-        <div class="fragment1"><%=foo%></div>
-    </script>
-    
-
-
+    <!-- 
+    1. JS at the bottom of the page to optimize load time.
+    2. config.js contains our requireJS shims and defines a dependency on main.js
+    3. Per the requireJS spec, the value of data-main will be loaded after require.js allowing us to manage depencendies
+    in a logical way, outside of our index.html
+    -->
     <script src="js/config.js"></script>
     <script data-main="js/main" src="js/vendor/require.js"></script>
+
 </body>
 </html>
