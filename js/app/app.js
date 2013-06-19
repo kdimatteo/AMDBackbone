@@ -63,7 +63,10 @@
 				// Start Backbone
 				// Note that v1.0 does not gracefully degrade for browsers which do not support pushState
 				// so we must set this value copnditionally. Could also be addressed with Modernizr
-				Backbone.history.start({ pushState: ((history.pushState !== undefined) ? true : false), root: '/Templates/backbone-project/'});
+				Backbone.history.start({ 
+					pushState: ((history.pushState !== undefined) ? true : false), 
+					root: 'AMDBackone'
+				});
 
 			}
 		};
