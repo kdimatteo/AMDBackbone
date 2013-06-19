@@ -4,7 +4,7 @@
  */
 ;(function(require){
 	'use strict';
-	require(['app'], function(app){
-		app.start()
+	require(['app/app'], function(App){
+		App.start();
 	});
 })(require);

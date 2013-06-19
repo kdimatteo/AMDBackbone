@@ -24,7 +24,7 @@ define([
 		 * Example of how to handle clicks
 		 */
 		events : {
-			//'click .someClass' : 'someFunction'
+			//'click .some-class' : 'someFunction'
 		},
 
 		/**
@@ -44,5 +44,5 @@ define([
 			return this;
 		}
 
-	});	
+	});
 });
